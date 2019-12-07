@@ -59,7 +59,8 @@ public class LoginController {
 		String token = tokenService.generateToken(datosLogin.getUsuario(), EXPIRATION_IN_SEC);
 		
 		HttpHeaders responseHeaders = new HttpHeaders();
-	    responseHeaders.set("token", token);	    
+		responseHeaders.set("Access-Control-Expose-Headers", "Authorization, X-Custom");
+	    responseHeaders.set(HttpHeaders.AUTHORIZATION, token); 
 	    
 		return ResponseEntity.ok().headers(responseHeaders).body(tipoUsuario);
 	

@@ -1,6 +1,7 @@
 
 package ttps.spring.services;
 import java.security.Key;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.stereotype.Service;
@@ -22,8 +23,11 @@ public class TokenService {
 	 }
 
 	private Date getExpiration(Date date, int segundos) {
-		date.setTime(date.getTime() + (10* 1000));
-		return date;
+		Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.SECOND, segundos);
+
+        return calendar.getTime();
 	}
 	
 	public static boolean validateToken(String token) {
