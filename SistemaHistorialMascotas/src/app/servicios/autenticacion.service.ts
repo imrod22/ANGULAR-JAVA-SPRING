@@ -25,14 +25,19 @@ return this.usuarioActualSubject.value;
 
 login(usuario: string, password: string) {
   const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    observe: 'response' as 'body'
   };
 
-  return this.http.post<any>(environment.url.concat('login'), { usuario, password }, httpOptions).pipe(map(response => {
+  return this.http.post<any>(environment.url.concat('login'), { usuario, password }, httpOptions)
+  .pipe(map(response => {
 
-    if (response && response.headers.token) {
-      const usuarioLogueado = new Usuario(usuario, password);
-      usuarioLogueado.token = response.headers.token;
+    console.log(response.headers);
+    console.log(response.body);
+
+    if (response && response.headers.get('authorization')) {
+      const usuarioLogueado = new Usuario(usuario);
+      usuarioLogueado.token = response.headers.get('authorization');
 
       localStorage.setItem('usuarioActual', JSON.stringify(usuarioLogueado));
       this.usuarioActualSubject.next(usuarioLogueado);

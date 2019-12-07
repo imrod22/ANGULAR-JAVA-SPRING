@@ -5,10 +5,8 @@ export class Usuario {
 
 
   constructor(
-    nombre: string,
-    password: string
+    nombre: string
     ) {
       this.nombre = nombre;
-      this.password = password;
     }
 }
