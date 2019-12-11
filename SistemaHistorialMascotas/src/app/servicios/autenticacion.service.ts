@@ -34,7 +34,7 @@ login(usuario: string, password: string) {
 
     if (response && response.headers.get('authorization')) {
       const usuarioLogueado = new Usuario(usuario, response.body.id, response.body.nombre,
-            response.body.apellido);
+            response.body.apellido, response.body.rol);
 
       usuarioLogueado.token = response.headers.get('authorization');
 

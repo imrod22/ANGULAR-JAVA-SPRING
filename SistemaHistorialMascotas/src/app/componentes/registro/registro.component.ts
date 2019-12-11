@@ -67,7 +67,6 @@ export class RegistroComponent implements OnInit {
       if (this.registroForm.value.rol === 'Veterinario' && !this.registroForm.value.direccionClinica) {
         this.alertaServicio.error('La direccion de la veterinaria es requerida');
         return;
-        return;
       }
 
       this.loading = true;
@@ -75,10 +74,11 @@ export class RegistroComponent implements OnInit {
           .pipe(first())
           .subscribe(
               data => {
+                  this.alertaServicio.success('Se ha registrado exitosamente en el sistema.');
                   this.router.navigate(['/login']);
               },
               error => {
-                  this.alertaServicio.error('Ha ocurrido un error en el servidor.');
+                  this.alertaServicio.error('Ha ocurrido un error en el servidor. Verifique los valores ingresados.');
                   this.loading = false;
               });
   }

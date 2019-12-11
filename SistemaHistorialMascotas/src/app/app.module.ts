@@ -13,6 +13,7 @@ import { DuenioComponent } from './componentes/duenio/duenio.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { ErrorInterceptor } from './helpers/error-interceptor';
 import { AlertaComponent } from './componentes/alerta/alerta.component';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AlertaComponent } from './componentes/alerta/alerta.component';
     HomeComponent,
     DuenioComponent,
     RegistroComponent,
-    AlertaComponent
+    AlertaComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

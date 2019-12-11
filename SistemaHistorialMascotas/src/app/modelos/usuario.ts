@@ -10,11 +10,13 @@ export class Usuario {
     nombreusuario: string,
     id: string,
     nombre: string,
+    apellido: string,
     rol: string
     ) {
       this.nombreusuario = nombreusuario;
       this.id = id;
       this.nombre = nombre;
+      this.apellido = apellido;
       this.rol = rol;
     }
 }
