@@ -9,4 +9,6 @@ import ttps.spring.model.*;
 public interface TipoUsuarioDAO extends GenericDAO<TipoUsuario> 
 {
 	int ObtenerIdTipoUsuario(String valDesc);
+	
+	TipoUsuario ObtenerTipoUsuario(String nombreTipo);
 }

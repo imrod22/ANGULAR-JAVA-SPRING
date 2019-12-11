@@ -1,25 +1,20 @@
 package ttps.spring.dto;
 
-import ttps.spring.model.Usuario;
-
-public abstract class InformacionPersonalDto {
-	private int id;
+public class InformacionBasicaUsuarioDto {
 	
 	private String nombre;
 	
 	private String apellido;
 	
+	private String usuario;
+	
+	private String contrasenia;
+	
 	private String telefono;
 	
 	private String rol;
 	
-	protected InformacionPersonalDto(Usuario usuario) {
-		this.setId(usuario.getId());
-		this.setApellido(usuario.getApellido());
-		this.setNombre(usuario.getNombre());
-		this.setTelefono(usuario.getTelefono());
-		this.setRol(usuario.getTipo().getDescripcion());
-	}
+	private String mail;
 
 	public String getNombre() {
 		return nombre;
@@ -35,6 +30,22 @@ public abstract class InformacionPersonalDto {
 
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getContrasenia() {
+		return contrasenia;
+	}
+
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
 	}
 
 	public String getTelefono() {
@@ -53,11 +64,11 @@ public abstract class InformacionPersonalDto {
 		this.rol = rol;
 	}
 
-	public int getId() {
-		return id;
+	public String getMail() {
+		return mail;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 }

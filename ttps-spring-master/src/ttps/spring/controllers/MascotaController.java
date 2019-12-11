@@ -28,21 +28,14 @@ public class MascotaController {
 	
 	@GetMapping("/mascotas/{id}")
 	public ResponseEntity<List<Mascota>> listarMascotasDuenio(@PathVariable int id) {
-				
-		String token = request.getHeader("token");
-		
-		if(token.equals("1234")) {
+					
 			List<Mascota> mascotasDuenio = mascotaService.ObtenerMascotaPorDueño(id);
 
 			if (mascotasDuenio != null && !mascotasDuenio.isEmpty() ) {
 				return new ResponseEntity<List<Mascota>>(mascotasDuenio, HttpStatus.OK);
 			}
 			
-			return new ResponseEntity<List<Mascota>>(HttpStatus.NO_CONTENT);	
-			
-		}
-		
-		return new ResponseEntity<List<Mascota>>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<List<Mascota>>(HttpStatus.NO_CONTENT);
 				
 		
 	}
@@ -50,9 +43,7 @@ public class MascotaController {
 	@PostMapping
 	@RequestMapping("/mascota")
 	public ResponseEntity<Mascota> crearMascota(@RequestBody Mascota mascota){
-		
-		if(request.getHeader("token").equals("1234")) {		
-			
+					
 			if(mascota.getRaza() == null) {
 				return new ResponseEntity<Mascota>(HttpStatus.BAD_REQUEST);
 			}
@@ -64,8 +55,5 @@ public class MascotaController {
 			Mascota m = this.mascotaService.CrearMascota(mascota);
 		
 			return new ResponseEntity<Mascota>(m, HttpStatus.CREATED);
-		}
-		
-		return new ResponseEntity<Mascota>(HttpStatus.UNAUTHORIZED);
 	}
 }

@@ -7,5 +7,5 @@ import ttps.spring.model.*;
 @Repository
 public interface InformacionVeterinariaDAO extends GenericDAO<InformacionVeterinaria> 
 {
-	
+	InformacionVeterinaria ObtenerInformacionVeterinaria(String domicilioVeterinaria);
 }

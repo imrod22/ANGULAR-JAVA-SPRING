@@ -29,7 +29,7 @@ public class LoginController {
 	 @Autowired
 	 private TokenService tokenService;
 	
-	 private final int EXPIRATION_IN_SEC = 10; 
+	 private final int EXPIRATION_IN_SEC = 3600; 
 	
 	@PostMapping
 	public ResponseEntity<InformacionPersonalDto> Login(@RequestBody LoginDto datosLogin)
