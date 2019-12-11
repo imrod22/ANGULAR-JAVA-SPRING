@@ -13,7 +13,12 @@ export class AuthFilter implements CanActivate  {
 
 canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const currentUser = this.authenticationService.usuarioActualValue;
+
     if (currentUser) {
+        if (route.data.roles && route.data.roles.indexOf(currentUser.rol) === -1) {
+          this.router.navigate(['/']);
+          return false;
+      }
         return true;
     }
 

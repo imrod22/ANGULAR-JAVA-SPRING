@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
+import { AlertaService } from 'src/app/servicios/alerta.service';
 
 @Component({ templateUrl: 'login.component.html' })
 
@@ -11,13 +12,13 @@ export class LoginComponent implements OnInit {
     loading = false;
     submitted = false;
     returnUrl: string;
-    error = '';
 
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private authService: AutenticacionService
+        private authService: AutenticacionService,
+        private alertaService: AlertaService
     ) {
         if (this.authService.usuarioActual) {
             this.router.navigate(['/']);
@@ -37,6 +38,9 @@ export class LoginComponent implements OnInit {
 
     onSubmit() {
         this.submitted = true;
+
+        this.alertaService.clear();
+
         if (this.loginForm.invalid) {
             return;
         }
@@ -49,7 +53,7 @@ export class LoginComponent implements OnInit {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
-                  this.error = 'Nombre de usuario o Contraseña incorrectas';
+                  this.alertaService.error('Nombre de usuario o Contraseña incorrectas');
                   this.loading = false;
                 });
     }

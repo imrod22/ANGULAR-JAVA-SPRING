@@ -8,21 +8,33 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './componentes/home/home.component';
 import { JwtTokenInterceptor } from './helpers/jwt-token-interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DuenioComponent } from './componentes/duenio/duenio.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
+import { ErrorInterceptor } from './helpers/error-interceptor';
+import { AlertaComponent } from './componentes/alerta/alerta.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    DuenioComponent,
+    RegistroComponent,
+    AlertaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtTokenInterceptor, multi: true }],
+  providers: [
+              { provide: HTTP_INTERCEPTORS, useClass: JwtTokenInterceptor, multi: true },
+              { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+            ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

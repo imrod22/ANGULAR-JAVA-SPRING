@@ -1,12 +1,20 @@
 export class Usuario {
+  public id: string;
+  public nombreusuario: string;
   public nombre: string;
-  public password: string;
+  public apellido: string;
+  public rol: string;
   public token?: string;
 
-
   constructor(
-    nombre: string
+    nombreusuario: string,
+    id: string,
+    nombre: string,
+    rol: string
     ) {
+      this.nombreusuario = nombreusuario;
+      this.id = id;
       this.nombre = nombre;
+      this.rol = rol;
     }
 }

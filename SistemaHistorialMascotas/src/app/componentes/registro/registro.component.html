@@ -1,0 +1,84 @@
+<h2>Registro de nuevo usuario</h2>
+<form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" formControlName="nombre" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+        <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+            <div *ngIf="f.nombre.errors.required">Nombre es requerido</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <input type="text" formControlName="apellido" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.apellido.errors }" />
+        <div *ngIf="submitted && f.apellido.errors" class="invalid-feedback">
+            <div *ngIf="f.apellido.errors.required">Apellido es requerido</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="nombreusuario">Nombre de Usuario</label>
+        <input type="text" formControlName="nombreusuario" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombreusuario.errors }" />
+        <div *ngIf="submitted && f.nombreusuario.errors" class="invalid-feedback">
+            <div *ngIf="f.nombreusuario.errors.required">Nombre de usuario requerido</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="contrasena">Contraseña</label>
+      <input type="password" formControlName="contrasena" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contrasena.errors }" />
+      <div *ngIf="submitted && f.contrasena.errors" class="invalid-feedback">
+        <div *ngIf="f.contrasena.errors.required">Contraseña es requerida</div>
+        <div *ngIf="f.contrasena.errors.minlength">Contraseña debe tener mas de 6 caracteres alfanumericos</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Rol</label>
+        <select formControlName="rol">
+          <option [ngValue]="null" disabled>Seleccione el perfil</option>
+          <option *ngFor="let rol of roles" [ngValue]="rol.clave">
+           {{ rol.nombre }}
+          </option>
+        </select>
+    </div>
+    <div class="form-group" *ngIf="f.rol.value == 'Veterinario'">
+
+      <label for="nombreClinica">Nombre de la Clinica</label>
+      <input type="text" formControlName="nombreClinica" class="form-control" />
+      <div *ngIf="faltaNombreVeterinaria">
+        El nombre de la veterinaria es requerido.
+      </div>
+
+      <label for="direccionClinica">Direccion de la Clinica</label>
+      <input type="text" formControlName="direccionClinica" class="form-control" />
+      <div *ngIf="faltaDireccionVeterinaria">
+          La direccion de la veterinaria es requerida.
+        </div>
+    </div>
+
+    <div class="form-group">
+    <label for="telefono">Telefono</label>
+    <input type="telefono" formControlName="telefono" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.telefono.errors }" />
+    <div *ngIf="submitted && f.telefono.errors" class="invalid-feedback">
+        <div *ngIf="f.telefono.errors.required">Telefono es requerido</div>
+    </div>
+    </div>
+
+    <div class="form-group">
+  <label for="email">Mail</label>
+  <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+      <div *ngIf="f.email.errors.required">Mail es requerido</div>
+  </div>
+    </div>
+
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Registrar
+        </button>
+        <a routerLink="/login" class="btn btn-link">Cancelar</a>
+    </div>
+</form>

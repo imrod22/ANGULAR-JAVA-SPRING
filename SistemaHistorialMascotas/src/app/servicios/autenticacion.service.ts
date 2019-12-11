@@ -32,11 +32,10 @@ login(usuario: string, password: string) {
   return this.http.post<any>(environment.url.concat('login'), { usuario, password }, httpOptions)
   .pipe(map(response => {
 
-    console.log(response.headers);
-    console.log(response.body);
-
     if (response && response.headers.get('authorization')) {
-      const usuarioLogueado = new Usuario(usuario);
+      const usuarioLogueado = new Usuario(usuario, response.body.id, response.body.nombre,
+            response.body.apellido);
+
       usuarioLogueado.token = response.headers.get('authorization');
 
       localStorage.setItem('usuarioActual', JSON.stringify(usuarioLogueado));
