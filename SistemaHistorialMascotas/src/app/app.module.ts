@@ -29,7 +29,6 @@ import { VeterinarioComponent } from './componentes/veterinario/veterinario.comp
     RegistroComponent,
     AlertaComponent,
     PerfilComponent,
-    FormularioMascotaComponent,
     VeterinarioComponent,
     HomePublicComponent,
     FormularioMascotaComponent
