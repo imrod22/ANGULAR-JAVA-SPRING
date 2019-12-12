@@ -14,8 +14,10 @@ public class DuenioDto extends InformacionPersonalDto {
 		
 		this.mascotas = new ArrayList<MascotaDto>();
 		
-		for (Mascota mascotaActual : usuario.getMascotas()) {
-			this.mascotas.add(new MascotaDto(mascotaActual));
+		if (usuario.getMascotas() != null) {
+			for (Mascota mascotaActual : usuario.getMascotas()) {
+				this.mascotas.add(new MascotaDto(mascotaActual));
+			}		
 		}		
 	}
 

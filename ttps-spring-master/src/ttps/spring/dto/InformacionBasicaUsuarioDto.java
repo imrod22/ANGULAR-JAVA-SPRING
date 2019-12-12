@@ -2,42 +2,28 @@ package ttps.spring.dto;
 
 public class InformacionBasicaUsuarioDto {
 	
-	private String nombre;
-	
-	private String apellido;
-	
-	private String usuario;
-	
+	private String id;
+
 	private String contrasenia;
+
+	private String email;
 	
 	private String telefono;
 	
-	private String rol;
+	private String idVeterinaria;
 	
-	private String mail;
+	private String direccionClinica;
+	
+	private String nombreClinica;
+	
+	private String rol;
 
-	public String getNombre() {
-		return nombre;
+	public String getId() {
+		return id;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getContrasenia() {
@@ -48,12 +34,36 @@ public class InformacionBasicaUsuarioDto {
 		this.contrasenia = contrasenia;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getTelefono() {
 		return telefono;
 	}
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+
+	public String getDireccionClinica() {
+		return direccionClinica;
+	}
+
+	public void setDireccionClinica(String direccionClinica) {
+		this.direccionClinica = direccionClinica;
+	}
+
+	public String getNombreClinica() {
+		return nombreClinica;
+	}
+
+	public void setNombreClinica(String nombreClinica) {
+		this.nombreClinica = nombreClinica;
 	}
 
 	public String getRol() {
@@ -64,11 +74,11 @@ public class InformacionBasicaUsuarioDto {
 		this.rol = rol;
 	}
 
-	public String getMail() {
-		return mail;
+	public String getIdVeterinaria() {
+		return idVeterinaria;
 	}
 
-	public void setMail(String mail) {
-		this.mail = mail;
+	public void setIdVeterinaria(String idVeterinaria) {
+		this.idVeterinaria = idVeterinaria;
 	}
 }

@@ -8,6 +8,8 @@ import ttps.spring.model.Usuario;
 
 public class VeterinarioDto extends InformacionPersonalDto {
 	
+	private int idVeterinaria;
+	
 	private String nombreConsultorio;
 	
 	private String direccion;
@@ -19,6 +21,7 @@ public class VeterinarioDto extends InformacionPersonalDto {
 		
 		this.setDireccion(usuario.getVeterinaria().getDomicilioClinica());
 		this.setNombreConsultorio(usuario.getVeterinaria().getNombreClinica());
+		this.setIdVeterinaria(usuario.getVeterinaria().getId());
 		
 		this.pacientes = new ArrayList<MascotaDto>();
 		
@@ -49,5 +52,13 @@ public class VeterinarioDto extends InformacionPersonalDto {
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
+	}
+
+	public int getIdVeterinaria() {
+		return idVeterinaria;
+	}
+
+	public void setIdVeterinaria(int idVeterinaria) {
+		this.idVeterinaria = idVeterinaria;
 	}
 }

@@ -7,6 +7,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import ttps.spring.daos.*;
+import ttps.spring.dto.InformacionBasicaUsuarioDto;
 import ttps.spring.model.*;
 
 
@@ -30,6 +31,19 @@ public class InformacionVeterinariaDAOHibernateJPA extends GenericDAOHibernateJP
 		}
 		
 		return null;
+	}
+	
+	public void ActualizarInformacionVeterinaria(InformacionBasicaUsuarioDto usuarioEditado)
+	{
+		Query update= this.getEntityManager().createQuery(
+				"UPDATE " + getPersistentClass().getName() 
+				+ " u SET u.domicilioClinica = '" + usuarioEditado.getDireccionClinica() + "', "
+				+ " u.nombreClinica = '"+ usuarioEditado.getNombreClinica() + "'"
+				
+				+ " WHERE u.id = '"+ usuarioEditado.getIdVeterinaria() + "'" );
+		
+		update.executeUpdate();	
+		
 	}
 
 	

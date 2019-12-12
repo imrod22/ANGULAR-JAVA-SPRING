@@ -25,44 +25,43 @@ public class LoginController {
 
 	@Autowired
 	private LoginService loginService;
-	
-	 @Autowired
-	 private TokenService tokenService;
-	
-	 private final int EXPIRATION_IN_SEC = 3600; 
-	
+
+	@Autowired
+	private TokenService tokenService;
+
+	private final int EXPIRATION_IN_SEC = 3600;
+
 	@PostMapping
-	public ResponseEntity<InformacionPersonalDto> Login(@RequestBody LoginDto datosLogin)
-	{
-		if(datosLogin == null ||  datosLogin.getUsuario() == null || datosLogin.getPassword() == null)
-			return new ResponseEntity<InformacionPersonalDto>(HttpStatus.BAD_REQUEST);		
-		
-		Usuario usuarioLogueado = loginService.Ingresar(datosLogin);		
-		
+	public ResponseEntity<InformacionPersonalDto> Login(@RequestBody LoginDto datosLogin) {
+		if (datosLogin == null || datosLogin.getUsuario() == null || datosLogin.getPassword() == null)
+			return new ResponseEntity<InformacionPersonalDto>(HttpStatus.BAD_REQUEST);
+
+		Usuario usuarioLogueado = loginService.Ingresar(datosLogin);
+
 		InformacionPersonalDto tipoUsuario;
-		
-		if(usuarioLogueado == null) 
+
+		if (usuarioLogueado == null)
 			return new ResponseEntity<InformacionPersonalDto>(HttpStatus.UNAUTHORIZED);
-		
+
 		switch (usuarioLogueado.getTipo().getDescripcion()) {
-		case "Dueno":	
+		case "Dueno":
 			tipoUsuario = new DuenioDto(usuarioLogueado);
 			break;
-			
-		case "Veterinario":	
-			tipoUsuario = new VeterinarioDto(usuarioLogueado);		
-			break;	
-		default: 
+
+		case "Veterinario":
+			tipoUsuario = new VeterinarioDto(usuarioLogueado);
+			break;
+		default:
 			tipoUsuario = new AdministradorDto(usuarioLogueado);
-		}		
-		
+		}
+
 		String token = tokenService.generateToken(datosLogin.getUsuario(), EXPIRATION_IN_SEC);
-		
+
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.set("Access-Control-Expose-Headers", "Authorization, X-Custom");
-	    responseHeaders.set(HttpHeaders.AUTHORIZATION, token); 
-	    
+		responseHeaders.set(HttpHeaders.AUTHORIZATION, token);
+
 		return ResponseEntity.ok().headers(responseHeaders).body(tipoUsuario);
-	
-	}	
+
+	}
 }
