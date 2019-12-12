@@ -10,8 +10,7 @@ import { PerfilComponent } from './componentes/perfil/perfil.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    canActivate: [AuthFilter]
+    component: HomeComponent
 },
 {
     path: 'login',

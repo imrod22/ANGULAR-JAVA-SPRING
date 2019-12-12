@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="usuarioLogueado">
+<nav class="navbar navbar-expand navbar-dark bg-dark">
   <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/">Home</a>
-      <a class="nav-item nav-link" routerLink="/perfil">Mi Info</a>
-      <a class="nav-item nav-link" >Bievenido {{usuarioLogueado.nombre}}</a>
-      <a class="nav-item nav-link" (click)="logout()">Salir</a>
+      <a class="nav-item nav-link" routerLink="/"*ngIf="usuarioLogueado">Sistema de Historia Clinica de Mascotas</a>
+      <a class="nav-item nav-link" routerLink="/login"*ngIf="!usuarioLogueado">Ingresar</a>
+      <a class="nav-item nav-link" routerLink="/perfil" *ngIf="usuarioLogueado">Bienvenido {{usuarioLogueado.nombre}}</a>
+      <a class="nav-item nav-link" (click)="logout()" *ngIf="usuarioLogueado">Salir</a>
   </div>
 </nav>
 

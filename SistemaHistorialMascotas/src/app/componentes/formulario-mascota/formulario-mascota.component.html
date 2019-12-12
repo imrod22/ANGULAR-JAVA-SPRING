@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="row">
+      <div class="mb-4 mt-0 col-md-12 padding-none">
+
+        <h3>Mis mascotas</h3>
+
+        <div class="card-body">
+
+                <div class="table-responsive">
+
+                  <mat-table [dataSource]="misMascotas" matSort class="table">
+
+                    <ng-container matColumnDef="nombre">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+                      <mat-cell *matCellDef="let row"> {{row.nombre}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="raza">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> Raza </mat-header-cell>
+                      <mat-cell  *matCellDef="let row"> {{row.raza}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="fechanacimiento">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de Nacimiento </mat-header-cell>
+                      <mat-cell  *matCellDef="let row" > {{row.fechanacimiento}} </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </mat-row>
+                  </mat-table>
+                  <mat-paginator [length]="10" [pageSize]="10" [hidePageSize]="true"></mat-paginator>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <h4>Registrar nueva mascota</h4>
+            <form [formGroup]="nuevaMascotaForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" formControlName="nombre" class="form-control"/>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="fechanacimiento">Fecha de Nacimiento</label>
+                    <input type="text" formControlName="fechanacimiento" class="form-control"/>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="sexo">Sexo</label>
+                    <input type="text" formControlName="sexo" class="form-control"  />
+
+                </div>
+
+                <div class="form-group">
+                  <label for="color">Color</label>
+                  <input type="text" formControlName="color" class="form-control" />
+
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Veterinario asignado</label>
+                    <select formControlName="rol">
+                      <option [ngValue]="null" disabled>Elija un veterinario</option>
+                      <option *ngFor="let vet of veterinarios" [ngValue]="vet.id">
+                       Dr/a. {{vet.apellido}}, {{ vet.nombre }}
+                      </option>
+                    </select>
+                </div>
+
+                  <label for="senasParticulares">Señas Particulares</label>
+                  <textarea type="text" formControlName="senasParticulares" class="form-control"></textarea>
+
+                <div class="form-group">
+                    <button [disabled]="loading" class="btn btn-primary">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Registrar Mascota
+                    </button>
+                </div>
+            </form>
+        </div>

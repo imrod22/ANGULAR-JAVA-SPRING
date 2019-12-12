@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {  MatTableModule, MatPaginatorModule, MatSortModule, MatPaginatorIntl,
+  MatFormFieldModule, MatInputModule, MatNativeDateModule, MatDatepickerModule, MAT_DATE_LOCALE } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
@@ -14,6 +15,7 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { ErrorInterceptor } from './helpers/error-interceptor';
 import { AlertaComponent } from './componentes/alerta/alerta.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
+import { FormularioMascotaComponent } from './componentes/formulario-mascota/formulario-mascota.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { PerfilComponent } from './componentes/perfil/perfil.component';
     DuenioComponent,
     RegistroComponent,
     AlertaComponent,
-    PerfilComponent
+    PerfilComponent,
+    FormularioMascotaComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,14 @@ import { PerfilComponent } from './componentes/perfil/perfil.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [
               { provide: HTTP_INTERCEPTORS, useClass: JwtTokenInterceptor, multi: true },

@@ -11,7 +11,6 @@ import { AutenticacionService } from './servicios/autenticacion.service';
 })
 export class AppComponent {
   title = 'HospitalDeMascotas';
-
   usuarioLogueado: Usuario;
 
   constructor(
@@ -23,6 +22,6 @@ export class AppComponent {
 
   logout() {
       this.authService.logout();
-      this.router.navigate(['/login']);
+      this.router.navigate(['/']);
   }
 }

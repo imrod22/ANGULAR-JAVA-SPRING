@@ -20,9 +20,7 @@ export class LoginComponent implements OnInit {
         private authService: AutenticacionService,
         private alertaService: AlertaService
     ) {
-        if (this.authService.usuarioActual) {
-            this.router.navigate(['/']);
-        }
+
     }
 
     ngOnInit() {
