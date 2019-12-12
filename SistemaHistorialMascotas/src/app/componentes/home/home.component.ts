@@ -19,8 +19,5 @@ export class HomeComponent implements OnInit {
     
   }
 
-  isHomePublic(){
-    return true;
-  }
 
 }

@@ -15,7 +15,6 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { ErrorInterceptor } from './helpers/error-interceptor';
 import { AlertaComponent } from './componentes/alerta/alerta.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
-import { MascotaComponent } from './componentes/mascota/mascota.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HomePublicComponent } from './componentes/home/home-public/home-public.component';
 import { FormularioMascotaComponent } from './componentes/formulario-mascota/formulario-mascota.component';
@@ -29,7 +28,6 @@ import { FormularioMascotaComponent } from './componentes/formulario-mascota/for
     RegistroComponent,
     AlertaComponent,
     PerfilComponent,
-    MascotaComponent,
     HomePublicComponent,
     FormularioMascotaComponent
   ],
