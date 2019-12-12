@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MascotasService } from 'src/app/servicios/mascotas.service';
+import { Mascota } from 'src/app/modelos/mascota';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +12,11 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
+  }
+
+  isHomePublic(){
+    return true;
   }
 
 }

@@ -14,6 +14,10 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { ErrorInterceptor } from './helpers/error-interceptor';
 import { AlertaComponent } from './componentes/alerta/alerta.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
+import { MascotaComponent } from './componentes/mascota/mascota.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+import { HomePublicComponent } from './componentes/home/home-public/home-public.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,9 @@ import { PerfilComponent } from './componentes/perfil/perfil.component';
     DuenioComponent,
     RegistroComponent,
     AlertaComponent,
-    PerfilComponent
+    PerfilComponent,
+    MascotaComponent,
+    HomePublicComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,8 @@ import { PerfilComponent } from './componentes/perfil/perfil.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule
   ],
   providers: [
               { provide: HTTP_INTERCEPTORS, useClass: JwtTokenInterceptor, multi: true },

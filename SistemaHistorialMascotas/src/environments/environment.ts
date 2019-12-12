@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'http://localhost:8080/ttps-spring/'
+  url: 'http://88e48813.ngrok.io/ttps-spring/'
 };
 
 /*
