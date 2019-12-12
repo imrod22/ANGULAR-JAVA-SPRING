@@ -1,6 +1,7 @@
 package ttps.spring.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -46,11 +47,11 @@ public class Usuario implements Serializable {
 	
 	@OneToMany(mappedBy="duenio", cascade = CascadeType.ALL)
 	@JsonIgnore
-	private List<Mascota> mascotas;
+	private List<Mascota> mascotas = null;
 	
 	@OneToMany(mappedBy="veterinario", cascade = CascadeType.ALL)
 	@JsonIgnore
-	private List<Mascota> pacientes;
+	private List<Mascota> pacientes = null;
 	
 	public Usuario() {}
 	

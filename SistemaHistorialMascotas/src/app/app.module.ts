@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {  MatTableModule, MatPaginatorModule, MatSortModule, MatPaginatorIntl,
+  MatFormFieldModule, MatInputModule, MatNativeDateModule, MatDatepickerModule, MAT_DATE_LOCALE } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
@@ -16,8 +17,8 @@ import { AlertaComponent } from './componentes/alerta/alerta.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { MascotaComponent } from './componentes/mascota/mascota.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
 import { HomePublicComponent } from './componentes/home/home-public/home-public.component';
+import { FormularioMascotaComponent } from './componentes/formulario-mascota/formulario-mascota.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HomePublicComponent } from './componentes/home/home-public/home-public.
     AlertaComponent,
     PerfilComponent,
     MascotaComponent,
-    HomePublicComponent
+    HomePublicComponent,
+    FormularioMascotaComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,14 @@ import { HomePublicComponent } from './componentes/home/home-public/home-public.
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [
               { provide: HTTP_INTERCEPTORS, useClass: JwtTokenInterceptor, multi: true },

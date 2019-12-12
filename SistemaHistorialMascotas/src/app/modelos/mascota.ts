@@ -4,6 +4,13 @@ export class Mascota {
     public id: string;
     public nombre: string;
     public imagenUrl: any;
+    public raza: string;
+    public fechanacimiento: string;
+    public idVeterinario: string;
+    public idDueno: string;
+    public senasParticulares: string;
+    public color: string;
+    public sexo: string;
 
     constructor(mascota: any) {
 
@@ -21,6 +28,6 @@ export class Mascota {
         this.imagenUrl = mascota.campoFicha.find(ficha => ficha.campo.nombre == "imagen") !== undefined ?
             environment.url.concat('imagenes/' + mascota.campoFicha.find(ficha => ficha.campo.nombre == "imagen").valor) : null;
 
-        //console.log (this.imagenUrl);
+            //console.log (this.imagenUrl);
     }
 }

@@ -1,6 +1,7 @@
 package ttps.spring.controllers;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,14 +15,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import ttps.spring.dto.IdentityDto;
+import ttps.spring.dto.InformacionMascotaDto;
+import ttps.spring.dto.VeterinarioDto;
+import ttps.spring.model.CampoFicha;
 import ttps.spring.model.Mascota;
+import ttps.spring.model.Usuario;
 import ttps.spring.services.MascotaService;
+import ttps.spring.services.UsuarioService;
 
 @RestController
 public class MascotaController {
 	
 	@Autowired
 	private MascotaService mascotaService;
+	
+	@Autowired
+	private UsuarioService usuarioService;
 	
 	@Autowired
 	private HttpServletRequest request;
@@ -56,4 +67,35 @@ public class MascotaController {
 		
 			return new ResponseEntity<Mascota>(m, HttpStatus.CREATED);
 	}
+	
+	@GetMapping
+	@RequestMapping("/veterinarios")
+	public ResponseEntity<List<VeterinarioDto>> obtenerVeterinarios(){
+					
+			List<Usuario> listadoVeterinarios = usuarioService.ObtenerVeterinarios();
+			List<VeterinarioDto> veterinarios = new ArrayList<VeterinarioDto>();
+			
+			for (Usuario unUsuario : listadoVeterinarios) {
+				veterinarios.add(new VeterinarioDto(unUsuario));
+				
+			}
+		
+			return new ResponseEntity<List<VeterinarioDto>>(veterinarios, HttpStatus.OK);
+	}
+	
+	@GetMapping
+	@RequestMapping("/mismascotas/{id}")
+	public ResponseEntity<List<InformacionMascotaDto>> obtenerInformacionMascotas(@PathVariable int id){
+					
+			List<Mascota> listadoMascotas = mascotaService.ObtenerMascotaPorDueño(id);
+			List<InformacionMascotaDto> infoMascotas = new ArrayList<InformacionMascotaDto>();
+			
+			for (Mascota unaMascota : listadoMascotas) {
+				infoMascotas.add(new InformacionMascotaDto(unaMascota));
+				
+			}
+		
+			return new ResponseEntity<List<InformacionMascotaDto>>(infoMascotas, HttpStatus.OK);
+	}
+	
 }

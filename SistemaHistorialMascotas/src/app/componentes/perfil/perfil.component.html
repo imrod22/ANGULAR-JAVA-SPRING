@@ -3,14 +3,14 @@
 <form [formGroup]="miInfoForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
             <h5>Apellido y nombre: {{usuario.apellido}}, {{usuario.nombre}}</h5>
-      <label for="contrasenaactual">Contraseña Actual</label>
-      <input type="password" formControlName="contrasenaactual" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contrasenaactual.errors }" />
+      <label for="contrasenia">Contraseña</label>
+      <input type="password" formControlName="contrasenia" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contrasenia.errors }" />
 
-      <label for="contrasenanueva">Contraseña Nueva</label>
-      <input type="password" formControlName="contrasenanueva" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contrasenanueva.errors }" />
+      <label for="contrasenarepetida">Repetir Contraseña</label>
+      <input type="password" formControlName="contrasenarepetida" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contrasenarepetida.errors }" />
 
     </div>
-    <div *ngIf="usuario.rol == 'Dueno'">
+    <div *ngIf="usuario.rol == 'Veterinario'">
       <label for="nombreClinica">Nombre de la Clinica</label>
       <input type="text" formControlName="nombreClinica" class="form-control" />
 
@@ -30,7 +30,10 @@
     </div>
 
     <div class="form-group">
-
+      <button [disabled]="loading" class="btn btn-primary">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Actualizar
+        </button>
         <a routerLink="/" class="btn btn-link">Cancelar</a>
     </div>
 </form>

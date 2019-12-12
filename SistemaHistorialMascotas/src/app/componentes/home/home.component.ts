@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MascotasService } from 'src/app/servicios/mascotas.service';
-import { Mascota } from 'src/app/modelos/mascota';
+import { Usuario } from 'src/app/modelos/usuario';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,11 @@ import { Mascota } from 'src/app/modelos/mascota';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  usuarioLogueado: Usuario;
+
+  constructor(private authService: AutenticacionService) {
+    this.authService.usuarioActual.subscribe(x => this.usuarioLogueado = x);
+  }
 
   ngOnInit() {
     

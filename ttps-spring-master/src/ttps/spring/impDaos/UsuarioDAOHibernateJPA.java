@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 
 import ttps.spring.daos.*;
+import ttps.spring.dto.InformacionBasicaUsuarioDto;
 import ttps.spring.dto.InformacionVeterinariaDto;
 import ttps.spring.dto.UsuarioDto;
 import ttps.spring.model.*;
@@ -38,18 +39,15 @@ public class UsuarioDAOHibernateJPA extends GenericDAOHibernateJPA<Usuario> impl
 		return null;
 	}
 	
-	public void ActualizarUsuario(UsuarioDto usuarioEditado)
+	public void ActualizarUsuario(InformacionBasicaUsuarioDto usuarioEditado)
 	{
 		Query update= this.getEntityManager().createQuery(
 				"UPDATE " + getPersistentClass().getName() 
-				+ " u SET u.nombre = '"+ usuarioEditado.getNombre() +"', "
-				+ " u.apellido = '"+ usuarioEditado.getApellido()  +"' ,"
-				+ " u.email = '" + usuarioEditado.getEmail() + "', "
+				+ " u SET u.email = '" + usuarioEditado.getEmail() + "', "
 				+ " u.telefono = '" + usuarioEditado.getTelefono() + "', "
-				+ " u.nombreUsuario = '" + usuarioEditado.getNombreusuario()  + "', "
-				+ " u.contrasena = '"+ usuarioEditado.getContrasena() + "'"
+				+ " u.contrasena = '"+ usuarioEditado.getContrasenia() + "'"
 				
-				+ " WHERE nombreUsuario = '"+ usuarioEditado.getId() + "'" );
+				+ " WHERE u.id = '"+ usuarioEditado.getId() + "'" );
 		
 		update.executeUpdate();	
 		
@@ -100,6 +98,22 @@ public class UsuarioDAOHibernateJPA extends GenericDAOHibernateJPA<Usuario> impl
 		if(!resultado.isEmpty())
 		{
 			return resultado.get(0);
+		}
+		
+		return null;
+	}
+
+	@Override
+	public List<Usuario> ObtenerUsuarios() {
+		Query consulta= this.getEntityManager().createQuery
+				("SELECT e FROM " +  getPersistentClass().getName() 
+						+" e ");
+	
+		@SuppressWarnings("unchecked")
+		List<Usuario> resultado = (List<Usuario>) consulta.getResultList();
+		if(!resultado.isEmpty())
+		{
+			return resultado;
 		}
 		
 		return null;
