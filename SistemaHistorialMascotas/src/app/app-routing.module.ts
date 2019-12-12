@@ -5,21 +5,29 @@ import { AuthFilter } from './filtros/auth-filter';
 import { HomeComponent } from './componentes/home/home.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
+import { FormularioMascotaComponent } from './componentes/formulario-mascota/formulario-mascota.component';
+import { from } from 'rxjs';
 
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
-},
-{
+  },
+  {
     path: 'login',
     component: LoginComponent
-},
-{   path: 'registro',
+  },
+  {
+    path: 'alta-mascota',
+    component: FormularioMascotaComponent
+  },
+  {
+    path: 'registro',
     component: RegistroComponent
   },
-  {   path: 'perfil',
+  {
+    path: 'perfil',
     component: PerfilComponent,
     canActivate: [AuthFilter]
   },

@@ -1,3 +1,6 @@
+<div *ngIf="!usuarioLogueado">
+    <app-home-public></app-home-public>
+</div>
 <div *ngIf="usuarioLogueado">
-    <app-formulario-mascota *ngIf="usuarioLogueado.rol == 'Dueno'"></app-formulario-mascota>
+    <app-duenio *ngIf="usuarioLogueado.rol == 'Dueno'"></app-duenio>
 </div>

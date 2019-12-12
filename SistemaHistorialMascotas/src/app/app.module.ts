@@ -15,7 +15,10 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { ErrorInterceptor } from './helpers/error-interceptor';
 import { AlertaComponent } from './componentes/alerta/alerta.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomePublicComponent } from './componentes/home/home-public/home-public.component';
 import { FormularioMascotaComponent } from './componentes/formulario-mascota/formulario-mascota.component';
+import { VeterinarioComponent } from './componentes/veterinario/veterinario.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { FormularioMascotaComponent } from './componentes/formulario-mascota/for
     RegistroComponent,
     AlertaComponent,
     PerfilComponent,
+    FormularioMascotaComponent,
+    VeterinarioComponent,
+    HomePublicComponent,
     FormularioMascotaComponent
   ],
   imports: [
@@ -35,6 +41,7 @@ import { FormularioMascotaComponent } from './componentes/formulario-mascota/for
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgbModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,

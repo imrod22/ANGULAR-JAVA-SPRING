@@ -21,34 +21,19 @@ export class FormularioMascotaComponent implements OnInit {
   loading = false;
   veterinarios: Usuario[];
 
-  misMascotas: MatTableDataSource<Mascota>;
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-
-  displayedColumns: string[] = ['nombre', 'raza', 'fechanacimiento'];
-
   constructor(private formBuilder: FormBuilder,
               private authService: AutenticacionService,
               private mascotaService: MascotaService) {
-                this.authService.usuarioActual.subscribe(x => this.usuario = x);
+    this.authService.usuarioActual.subscribe(x => this.usuario = x);
 
-                this.mascotaService.obtenerVeterinarios().pipe().subscribe(
-                  data => this.veterinarios = data
-                );
+    this.mascotaService.obtenerVeterinarios().pipe().subscribe(
+      data => this.veterinarios = data
+    );
 
 
-            }
+  }
 
   ngOnInit() {
-
-    this.mascotaService.obtenerMascotas(this.usuario.id).pipe(first())
-    .subscribe(
-        data => {
-          this.misMascotas = new MatTableDataSource(data);
-          this.misMascotas.paginator = this.paginator;
-          this.misMascotas.sort = this.sort;
-  });
-
     this.nuevaMascotaForm = this.formBuilder.group({
       nombre: ['', Validators.required],
       fechanacimiento: ['', Validators.required],
@@ -58,9 +43,9 @@ export class FormularioMascotaComponent implements OnInit {
       senasParticulares: ['', Validators.required],
       color: ['', Validators.required],
       sexo: ['', Validators.required]
-  });
+    });
   }
 
-onSubmit() {}
+  onSubmit() { }
 
 }

@@ -67,4 +67,8 @@ export class UsuarioService {
 
     return this.http.post<any>(environment.url.concat('actualizar'), info, httpOptions);
   }
+
+  obtenerPacientes(id: string) {
+
+  }
 }

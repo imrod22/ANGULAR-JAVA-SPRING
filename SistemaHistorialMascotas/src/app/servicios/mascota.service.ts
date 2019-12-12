@@ -27,10 +27,25 @@ export class MascotaService {
     };
 
     return this.http.get<any>(environment.url.concat('mismascotas/').concat(id))
-    .pipe(map(response => {
-      return response;
-  }));
+      .pipe(map(response => {
+        return response;
+      }));
 
+  }
+
+  /**
+   * obtiene todas las mascotas que se van a ver en forma publica
+   */
+  obtenerMascotaPublico(){
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      observe: 'response' as 'body'
+    };
+
+    return this.http.get<any>(environment.url.concat('mascotas'))
+      .pipe(map(response => {
+        return response;
+      }));    
   }
 
   obtenerVeterinarios() {
@@ -40,9 +55,9 @@ export class MascotaService {
     };
 
     return this.http.get<any>(environment.url.concat('veterinarios'))
-    .pipe(map(response => {
-      return response;
-  }));
+      .pipe(map(response => {
+        return response;
+      }));
 
   }
 
