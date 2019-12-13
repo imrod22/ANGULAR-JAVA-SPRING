@@ -105,6 +105,7 @@ export class PerfilComponent implements OnInit {
               },
               error => {
                   this.alertaServicio.error('Ha ocurrido un error en el servidor. Verifique los valores ingresados.');
+                  this.router.navigate(['/']);
                   this.loading = false;
               });
 

@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Usuario } from '../modelos/usuario';
+import { Nuevamascota } from '../modelos/nuevamascota';
 
 @Injectable({
   providedIn: 'root'
@@ -21,10 +22,6 @@ export class MascotaService {
   }
 
   obtenerMascotas(id: string) {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-      observe: 'response' as 'body'
-    };
 
     return this.http.get<any>(environment.url.concat('mismascotas/').concat(id))
       .pipe(map(response => {
@@ -49,16 +46,27 @@ export class MascotaService {
   }
 
   obtenerVeterinarios() {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-      observe: 'response' as 'body'
-    };
-
     return this.http.get<any>(environment.url.concat('veterinarios'))
       .pipe(map(response => {
         return response;
       }));
+  }
 
+  obtenerRazas() {
+    return this.http.get<any>(environment.url.concat('razas'))
+      .pipe(map(response => {
+        return response;
+      }));
+  }
+
+  agregarMascota(unaMascota: Nuevamascota) {
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', }), responseType: 'text' as 'json' };
+
+    this.usuarioActual.subscribe(x => {
+      unaMascota.idDueno = x.id;
+    });
+
+    return this.http.post<any>(environment.url.concat('nuevamascota'), unaMascota, httpOptions);
   }
 
 

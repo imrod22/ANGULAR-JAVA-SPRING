@@ -9,14 +9,17 @@
 
     <div class="form-group">
       <label for="fechanacimiento">Fecha de Nacimiento</label>
-      <input type="text" formControlName="fechanacimiento" class="form-control" />
+      <input type="date" formControlName="fechanacimiento" class="form-control" />
 
     </div>
 
     <div class="form-group">
       <label for="sexo">Sexo</label>
-      <input type="text" formControlName="sexo" class="form-control" />
-
+      <select formControlName="sexo">
+          <option *ngFor="let genero of sexo" [ngValue]="genero.clave">
+            {{genero.nombre}}
+          </option>
+      </select>
     </div>
 
     <div class="form-group">
@@ -26,9 +29,17 @@
     </div>
 
     <div class="form-group">
-      <label for="password">Veterinario asignado</label>
-      <select formControlName="rol">
-        <option [ngValue]="null" disabled>Elija un veterinario</option>
+      <label for="raza">Raza</label>
+      <select formControlName="raza">
+        <option *ngFor="let raza of razas" [ngValue]="raza.idRaza">
+          {{raza.descripcionEspecie}} - {{ raza.descripcionRaza }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="idVeterinario">Veterinario asignado</label>
+      <select formControlName="idVeterinario">
         <option *ngFor="let vet of veterinarios" [ngValue]="vet.id">
           Dr/a. {{vet.apellido}}, {{ vet.nombre }}
         </option>

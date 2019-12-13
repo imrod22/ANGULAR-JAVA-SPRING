@@ -69,6 +69,9 @@ export class UsuarioService {
   }
 
   obtenerPacientes(id: string) {
-
+    return this.http.get<any>(environment.url.concat('pacientes/').concat(id))
+    .pipe(map(response => {
+      return response;
+  }));
   }
 }

@@ -5,20 +5,18 @@ export class Mascota {
     public nombre: string;
     public urlImagen: string;
     public raza: string;
+    public descripcionRaza: string;
+    public descripcionEspecie: string;
     public fechanacimiento: string;
     public idVeterinario: string;
+    public nombreVeterinario: string;
     public idDueno: string;
+    public nombreDuenio: string;
     public senasParticulares: string;
     public color: string;
     public sexo: string;
 
-
-    public getUrlImagen(){
-        return  environment.url.concat("imagenes/"+ this.urlImagen);
-    }
-
     constructor(){
-        console.log("entro");
         
     }
 }
