@@ -19,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomePublicComponent } from './componentes/home/home-public/home-public.component';
 import { FormularioMascotaComponent } from './componentes/formulario-mascota/formulario-mascota.component';
 import { VeterinarioComponent } from './componentes/veterinario/veterinario.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { VeterinarioComponent } from './componentes/veterinario/veterinario.comp
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    AngularFontAwesomeModule
   ],
   providers: [
               { provide: HTTP_INTERCEPTORS, useClass: JwtTokenInterceptor, multi: true },

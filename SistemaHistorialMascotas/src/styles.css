@@ -1,4 +1,94 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'DINNextRoundedLTPro-Medium';
+  src: url('assets/fonts/DINNextRoundedLTPro-Medium.eot');
+  src: url('assets/fonts/DINNextRoundedLTPro-Medium.eot?#iefix') format('embedded-opentype'),
+       url('assets/fonts/DINNextRoundedLTPro-Medium.svg#DINNextRoundedLTPro-Medium') format('svg'),
+       url('assets/fonts/DINNextRoundedLTPro-Medium.ttf') format('truetype'),
+       url('assets/fonts/DINNextRoundedLTPro-Medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+  font-family: 'rubikblack';
+  src: url('assets/fonts/rubik-black-webfont.woff2') format('woff2'),
+       url('assets/fonts/rubik-black-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'rubikblack_italic';
+  src: url('assets/fonts/rubik-blackitalic-webfont.woff2') format('woff2'),
+       url('assets/fonts/rubik-blackitalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'rubikbold';
+  src: url('assets/fonts/rubik-bold-webfont.woff2') format('woff2'),
+       url('assets/fonts/rubik-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'rubikbold_italic';
+  src: url('assets/fonts/rubik-bolditalic-webfont.woff2') format('woff2'),
+       url('assets/fonts/rubik-bolditalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'rubiklight';
+  src: url('assets/fonts/rubik-light-webfont.woff2') format('woff2'),
+       url('assets/fonts/rubik-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'rubiklight_italic';
+  src: url('assets/fonts/rubik-lightitalic-webfont.woff2') format('woff2'),
+       url('assets/fonts/rubik-lightitalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'rubikmedium';
+  src: url('assets/fonts/rubik-medium-webfont.woff2') format('woff2'),
+       url('assets/fonts/rubik-medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'rubikmedium_italic';
+  src: url('assets/fonts/rubik-mediumitalic-webfont.woff2') format('woff2'),
+       url('assets/fonts/rubik-mediumitalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'rubikregular';
+  src: url('assets/fonts/rubik-regular-webfont.woff2') format('woff2'),
+       url('assets/fonts/rubik-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'rubikitalic';
+  src: url('assets/fonts/rubik-regularitalic-webfont.woff2') format('woff2'),
+       url('assets/fonts/rubik-regularitalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+nav .navbar-nav li a{
+  color: white !important;
+  }
