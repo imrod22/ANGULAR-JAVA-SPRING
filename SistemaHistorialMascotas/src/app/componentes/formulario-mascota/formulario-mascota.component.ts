@@ -29,8 +29,6 @@ export class FormularioMascotaComponent implements OnInit {
     this.mascotaService.obtenerVeterinarios().pipe().subscribe(
       data => this.veterinarios = data
     );
-
-
   }
 
   ngOnInit() {

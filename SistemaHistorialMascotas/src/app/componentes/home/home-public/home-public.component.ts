@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Mascota } from 'src/app/modelos/mascota';
-import { MascotasService } from 'src/app/servicios/mascotas.service';
+import { MascotaService } from 'src/app/servicios/mascota.service';
 
 @Component({
   selector: 'app-home-public',
@@ -9,11 +9,9 @@ import { MascotasService } from 'src/app/servicios/mascotas.service';
 })
 export class HomePublicComponent implements OnInit {
 
-  mascotas : Mascota[];
+  mascotas: Mascota[];
 
-  constructor(private mascotaService : MascotasService) { }
+  constructor(private mascotaService: MascotaService) { }
 
-  ngOnInit() {
-    this.mascotas = this.mascotaService.obtenerMascotasPublico();
-  }
+  ngOnInit() {  }
 }

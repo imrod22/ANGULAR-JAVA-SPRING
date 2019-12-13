@@ -1,1 +1,37 @@
-<p>veterinario works!</p>
+<div class="container">
+  <div class="row">
+      <div class="mb-4 mt-0 col-md-12 padding-none">
+
+          <h3>Mis pacientes</h3>
+
+          <div class="card-body">
+
+              <div class="table-responsive">
+
+                  <mat-table [dataSource]="pacientes" matSort class="table">
+
+                      <ng-container matColumnDef="nombre">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+                          <mat-cell *matCellDef="let row"> {{row.nombre}} </mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="raza">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header> Raza </mat-header-cell>
+                          <mat-cell *matCellDef="let row"> {{row.raza}} </mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="fechanacimiento">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de Nacimiento </mat-header-cell>
+                          <mat-cell *matCellDef="let row"> {{row.fechanacimiento}} </mat-cell>
+                      </ng-container>
+
+                      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                      <mat-row *matRowDef="let row; columns: displayedColumns;">
+                      </mat-row>
+                  </mat-table>
+                  <mat-paginator [length]="10" [pageSize]="10" [hidePageSize]="true"></mat-paginator>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

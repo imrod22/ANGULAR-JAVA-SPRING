@@ -21,10 +21,6 @@ export class MascotaService {
   }
 
   obtenerMascotas(id: string) {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-      observe: 'response' as 'body'
-    };
 
     return this.http.get<any>(environment.url.concat('mismascotas/').concat(id))
       .pipe(map(response => {
@@ -33,19 +29,12 @@ export class MascotaService {
 
   }
 
-  /**
-   * obtiene todas las mascotas que se van a ver en forma publica
-   */
-  obtenerMascotaPublico(){
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-      observe: 'response' as 'body'
-    };
+  obtenerMascotaPublico() {
 
     return this.http.get<any>(environment.url.concat('mascotas'))
       .pipe(map(response => {
         return response;
-      }));    
+      }));
   }
 
   obtenerVeterinarios() {

@@ -12,12 +12,9 @@ export class Mascota {
     public color: string;
     public sexo: string;
 
-    public getImagenUrl(){
-       return  environment.url.concat('imagenes/'+ this.imagen );
+    public getImagenUrl() {
+       return  environment.url.concat('imagenes/' + this.imagen );
     }
 
-    constructor(mascota: any) {
-        //imagen
-
-    }
+    constructor(mascota: any) {  }
 }
