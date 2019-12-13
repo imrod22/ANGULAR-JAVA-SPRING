@@ -14,8 +14,8 @@
     </div>
 
     <div class="form-group">
-      <label for="password">Sexo</label>
-      <select formControlName="Sexo">
+      <label for="sexo">Sexo</label>
+      <select formControlName="sexo">
           <option *ngFor="let genero of sexo" [ngValue]="genero.clave">
             {{genero.nombre}}
           </option>
@@ -29,8 +29,8 @@
     </div>
 
     <div class="form-group">
-      <label for="idRaza">Raza</label>
-      <select formControlName="idRaza">
+      <label for="raza">Raza</label>
+      <select formControlName="raza">
         <option *ngFor="let raza of razas" [ngValue]="raza.idRaza">
           {{raza.descripcionEspecie}} - {{ raza.descripcionRaza }}
         </option>

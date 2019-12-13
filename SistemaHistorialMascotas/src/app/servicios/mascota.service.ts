@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Usuario } from '../modelos/usuario';
+import { Nuevamascota } from '../modelos/nuevamascota';
 
 @Injectable({
   providedIn: 'root'
@@ -51,8 +52,14 @@ export class MascotaService {
       }));
   }
 
-  agregarMascota(unaMascota: Mascota) {
+  agregarMascota(unaMascota: Nuevamascota) {
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', }), responseType: 'text' as 'json' };
 
+    this.usuarioActual.subscribe(x => {
+      unaMascota.idDueno = x.id;
+    });
+
+    return this.http.post<any>(environment.url.concat('nuevamascota'), unaMascota, httpOptions);
   }
 
 

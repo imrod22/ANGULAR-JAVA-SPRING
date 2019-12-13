@@ -30,8 +30,6 @@ export class FormularioMascotaComponent implements OnInit {
               private authService: AutenticacionService,
               private mascotaService: MascotaService,
               private router: Router,
-              private authServicio: AutenticacionService,
-              private usuarioServicio: UsuarioService,
               private alertaServicio: AlertaService) {
     this.authService.usuarioActual.subscribe(x => this.usuario = x);
 
@@ -48,7 +46,7 @@ export class FormularioMascotaComponent implements OnInit {
     this.nuevaMascotaForm = this.formBuilder.group({
       nombre: ['', Validators.required],
       fechanacimiento: ['', Validators.required],
-      idRaza: ['', Validators.required],
+      raza: ['', Validators.required],
       idVeterinario: [''],
       idDueno: [''],
       senasParticulares: ['', Validators.required],
@@ -65,7 +63,7 @@ export class FormularioMascotaComponent implements OnInit {
         return;
     }
 
-    if (!this.nuevaMascotaForm.value.idRaza) {
+    if (!this.nuevaMascotaForm.value.raza) {
       this.alertaServicio.error('La raza de la nueva mascota es obligatoria');
       return;
     }
@@ -81,7 +79,7 @@ export class FormularioMascotaComponent implements OnInit {
     }
 
     this.loading = true;
-    this.mascotaService.(this.nuevaMascotaForm.value)
+    this.mascotaService.agregarMascota(this.nuevaMascotaForm.value)
         .pipe(first())
         .subscribe(
             data => {
