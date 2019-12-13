@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Mascota } from 'src/app/modelos/mascota';
-import { MascotasService } from 'src/app/servicios/mascotas.service';
+import { MascotaService } from 'src/app/servicios/mascota.service';
+import { Observable } from 'rxjs';
+import { first } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-home-public',
@@ -9,11 +12,29 @@ import { MascotasService } from 'src/app/servicios/mascotas.service';
 })
 export class HomePublicComponent implements OnInit {
 
-  mascotas : Mascota[];
+  mascotas :  Mascota[];
 
-  constructor(private mascotaService : MascotasService) { }
+
+  
+  constructor(private mascotaService : MascotaService) {
+
+    //this.mascotas =[];
+
+    console.log(this.mascotaService.obtenerMascotaPublico().pipe());
+
+    this.mascotaService.obtenerMascotaPublico().pipe().subscribe(
+      data => this.mascotas = data
+    );
+
+    console.log(this.mascotas);
+
+  }
 
   ngOnInit() {
-    this.mascotas = this.mascotaService.obtenerMascotasPublico();
+
   }
+
+
+
+  
 }

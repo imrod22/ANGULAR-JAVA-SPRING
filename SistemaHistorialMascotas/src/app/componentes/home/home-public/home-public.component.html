@@ -2,7 +2,7 @@
 <ngb-carousel>
     <ng-template ngbSlide *ngFor="let mascota of mascotas; let i = index">
         <div class="picsum-img-wrapper">
-            <img class="d-block w-100" [src]="mascota.imagenUrl">
+            <img class="d-block w-100" [src]="mascota.urlImagen">
         </div>
         <div class="carousel-caption">
             <h3>{{mascota.nombre}}</h3>

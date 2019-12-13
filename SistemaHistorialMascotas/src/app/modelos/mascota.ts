@@ -3,7 +3,7 @@ import { environment } from 'src/environments/environment';
 export class Mascota {
     public id: string;
     public nombre: string;
-    public imagen: string;
+    public urlImagen: string;
     public raza: string;
     public fechanacimiento: string;
     public idVeterinario: string;
@@ -12,12 +12,13 @@ export class Mascota {
     public color: string;
     public sexo: string;
 
-    public getImagenUrl(){
-       return  environment.url.concat('imagenes/'+ this.imagen );
+
+    public getUrlImagen(){
+        return  environment.url.concat("imagenes/"+ this.urlImagen);
     }
 
-    constructor(mascota: any) {
-        //imagen
-
+    constructor(){
+        console.log("entro");
+        
     }
 }

@@ -36,7 +36,7 @@ export class MascotaService {
   /**
    * obtiene todas las mascotas que se van a ver en forma publica
    */
-  obtenerMascotaPublico(){
+  obtenerMascotaPublico() {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
       observe: 'response' as 'body'
@@ -45,7 +45,7 @@ export class MascotaService {
     return this.http.get<any>(environment.url.concat('mascotas'))
       .pipe(map(response => {
         return response;
-      }));    
+      }));
   }
 
   obtenerVeterinarios() {
