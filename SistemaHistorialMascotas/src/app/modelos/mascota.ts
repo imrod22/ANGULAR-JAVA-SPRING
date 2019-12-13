@@ -5,9 +5,12 @@ export class Mascota {
     public nombre: string;
     public imagen: string;
     public raza: string;
+    public especie: string;
     public fechanacimiento: string;
     public idVeterinario: string;
+    public nombreapellidoVeterinario: string;
     public idDueno: string;
+    public nombreapellidoDueno: string;
     public senasParticulares: string;
     public color: string;
     public sexo: string;

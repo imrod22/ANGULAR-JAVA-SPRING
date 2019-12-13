@@ -38,15 +38,20 @@ export class MascotaService {
   }
 
   obtenerVeterinarios() {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-      observe: 'response' as 'body'
-    };
-
     return this.http.get<any>(environment.url.concat('veterinarios'))
       .pipe(map(response => {
         return response;
       }));
+  }
+
+  obtenerRazas() {
+    return this.http.get<any>(environment.url.concat('razas'))
+      .pipe(map(response => {
+        return response;
+      }));
+  }
+
+  agregarMascota(unaMascota: Mascota) {
 
   }
 
