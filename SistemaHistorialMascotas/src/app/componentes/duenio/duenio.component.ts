@@ -15,7 +15,7 @@ export class DuenioComponent implements OnInit {
 
   usuario: Usuario;
   misMascotas: MatTableDataSource<Mascota>;
-  displayedColumns: string[] = ['nombre', 'raza', 'fechanacimiento'];
+  displayedColumns: string[] = ['nombre', 'descripcionEspecie', 'descripcionRaza', 'fechanacimiento', 'nombreVeterinario'];
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;

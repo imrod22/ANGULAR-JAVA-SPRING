@@ -14,7 +14,7 @@ import { first } from 'rxjs/operators';
 
 export class VeterinarioComponent implements OnInit {
   usuario: Usuario;
-  displayedColumns: string[] = ['nombre', 'raza', 'fechanacimiento'];
+  displayedColumns: string[] = ['nombre', 'descripcionEspecie', 'descripcionRaza', 'fechanacimiento', 'nombreDuenio', 'senasParticulares'];
   loading = false;
   pacientes: MatTableDataSource<Mascota>;
 
